@@ -1,0 +1,45 @@
+# This file configures Charmcraft.
+# See https://juju.is/docs/sdk/charmcraft-config for guidance.
+
+# (Required)
+name: elastic-charm
+
+
+# (Required)
+type: charm
+
+
+# (Recommended)
+title: Elastic Charm
+
+
+# (Required)
+summary: POC to assign an elastic ip to a leader instance on config change.
+
+
+# (Required)
+description: |
+  POC to assign an elastic ip to a leader instance on config change.
+
+# (Required for 'charm' type)
+bases:
+  - build-on:
+    - name: ubuntu
+      channel: "22.04"
+    run-on:
+    - name: ubuntu
+      channel: "22.04"
+
+
+# (Optional) Configuration options for the charm
+# This config section defines charm config options, and populates the Configure
+# tab on Charmhub.
+# More information on this section at https://juju.is/docs/sdk/charmcraft-yaml#heading--config
+# General configuration documentation: https://juju.is/docs/sdk/config
+config:
+  options:
+    # An example config option to customise the log level of the workload
+    elastic-ip:
+      description: |
+        The public IP address of the leader instance.
+      type: string
